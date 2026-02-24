@@ -35,6 +35,7 @@ def test_category_page(
     )
 
 
+
 @pytest.mark.parametrize('key', [
     'title',
     ('category', 'title'),
