@@ -28,10 +28,10 @@ class Category(models.Model):
         help_text='Снимите галочку, '
         'чтобы скрыть публикацию.')
     created_at = models.DateTimeField(
-    auto_now_add=True,
-    null=False,
-    blank=False,
-    verbose_name='Добавлено')
+        auto_now_add=True,
+        null=False,
+        blank=False,
+        verbose_name='Добавлено')
 
     def __str__(self):
         return self.title
