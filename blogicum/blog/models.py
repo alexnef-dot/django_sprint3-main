@@ -7,8 +7,7 @@ class Category(models.Model):
                              verbose_name='Заголовок')
     description = models.TextField(null=False, blank=False,
                                    verbose_name='Описание')
-    slug = models.SlugField(null=False, blank=False, unique=True,
-                            verbose_name='Идентификатор',
+    slug = models.SlugField(null=False, blank=False, unique=True,verbose_name='Идентификатор',
                             help_text='Идентификатор страницы для URL; '
                                       'разрешены символы латиницы, цифры, дефис и подчёркивание.')
     is_published = models.BooleanField(default=True, null=False,blank=False, verbose_name='Опубликовано',
