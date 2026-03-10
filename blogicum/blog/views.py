@@ -6,9 +6,10 @@ from django.utils import timezone
 
 def index(request):
     template = "blog/index.html"
-    posts = Post.objects.filter(is_published=True,
-                                category__is_published=True,
-                                pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+    posts = Post.objects.filter(
+        is_published=True,
+        category__is_published=True,
+        pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
     context = {"post_list": posts}
     return render(request, template, context)
 
@@ -18,9 +19,10 @@ def category_posts(request, category_slug):
     if not category.is_published:
         raise Http404("Эта категория не опубликована")
     template = "blog/category.html"
-    posts = Post.objects.filter(is_published=True,
-                                pub_date__lte=timezone.now(),
-                                category=category)
+    posts = Post.objects.filter(
+        is_published=True,
+        pub_date__lte=timezone.now(),
+        category=category)
     context = {
         "category": category,  # Добавлено для использования в шаблоне
         "post_list": posts  # или "posts": posts
